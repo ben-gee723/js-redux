@@ -7,7 +7,7 @@ const defaultState = 0;
 const persistedState = JSON.parse(localStorage.getItem("persistedRedux"));
 let initialState = persistedState ? persistedState.counter.counter : defaultState;
 
-// 2. Create Slice
+// 2. Create Slice with reducer inside
 const counterSlice = createSlice({
     name: 'counter',
     initialState: { value: initialState },

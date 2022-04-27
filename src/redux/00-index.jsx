@@ -16,7 +16,7 @@ const store = configureStore({
 })
 
 // 4. Create AppProvider
-function AppProvider({ children }) {
+function AppContextProvider({ children }) {
 
     // 5. Provide the store to children
     return (
@@ -26,4 +26,5 @@ function AppProvider({ children }) {
     )
 }
 
-export default AppProvider;
+// 6. Export Context as default
+export default AppContextProvider;

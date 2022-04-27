@@ -7,16 +7,16 @@ import { useSelector } from "react-redux";
 import { countState } from './redux/02-counterReducer';
 
 function App() {
-  // 2. Declare all states to be saved
+  // 2. Declare useSelectors - all states to be saved
   const counter = { counter: useSelector(countState) };
 
-  // 3. Combine states
+  // 3. persistedStore - Combine states
   const persistedStore = { counter };
 
   // 4. Saved all states to localStorage
   useEffect(() => {
     localStorage.setItem("persistedRedux", JSON.stringify(persistedStore))
-  }, [counter])
+  }, [persistedStore])
 
   return (
     <div className="App">
