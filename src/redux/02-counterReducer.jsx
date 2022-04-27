@@ -1,8 +1,16 @@
+// REDUCER INSTANCE
+
 import { createSlice } from "@reduxjs/toolkit";
 
-export const counterSlice = createSlice({
+// 1. initialState = getItem from localStorage || 0;
+const defaultState = 0;
+const persistedState = JSON.parse(localStorage.getItem("persistedRedux"));
+let initialState = persistedState ? persistedState.counter.counter : defaultState;
+
+// 2. Create Slice
+const counterSlice = createSlice({
     name: 'counter',
-    initialState: { value: 0 },
+    initialState: { value: initialState },
     reducers: {
         increment: state => {
             state.value += 1
@@ -12,10 +20,10 @@ export const counterSlice = createSlice({
         }
     }
 })
-// console.log(counterSlice)
 
+// 3. Export necessary functions and value
 export const { increment, decrement } = counterSlice.actions;
+export const countState = state => state.counter.value;
 
-export const selectCount = state => state.counter.value;
-
+// 4. Export slice as default
 export default counterSlice;

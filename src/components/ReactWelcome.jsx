@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import logo from '../media/logo.svg';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, selectCount } from '../redux/02-counterReducer'
+import { increment, decrement, countState } from '../redux/02-counterReducer'
 
 
 function ReactWelcome() {
-    const count = useSelector(selectCount);
+    const count = useSelector(countState);
     const dispatch = useDispatch()
 
     return (
@@ -14,7 +14,7 @@ function ReactWelcome() {
             <img src={logo} className="App-logo" alt="logo" />
             <p>Hello Vite + React!</p>
             <div>
-                <h3>count is: {count}</h3>
+                <h3>count is: {count} </h3>
                 <button type="button" onClick={() => dispatch(increment())} >
                     Increase
                 </button>
